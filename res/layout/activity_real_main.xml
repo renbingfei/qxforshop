@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+	
+	<TabHost
+	    xmlns:android="http://schemas.android.com/apk/res/android" 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@color/white"
+	    android:id="@android:id/tabhost"
+	    >
+	    
+	    <RelativeLayout android:orientation="vertical"
+      		 android:layout_width="fill_parent"
+       		 android:layout_height="fill_parent">
+       		 <include 
+       		     android:id="@+id/include"
+       		     layout="@layout/global_navigation"/>
+		    <TabWidget 
+		        android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:background="@color/global_light_gray"
+	            android:id="@android:id/tabs"
+		        ></TabWidget>
+		    <FrameLayout 
+		        android:layout_below="@id/include"
+		        android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:id="@android:id/tabcontent"
+	            android:layout_above="@android:id/tabs"
+		        ></FrameLayout>
+		    </RelativeLayout>
+	</TabHost>

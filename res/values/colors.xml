@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title_blue">#0070C0</color>
+    <color name="global_gray">#D9D9D9</color>
+    <color name="global_light_gray">#EEEEEE</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="blue">#0070C0</color>
+    
+    <color name="global_goods_shop_name_color">#000000</color>
+</resources>

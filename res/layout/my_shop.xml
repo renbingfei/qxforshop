@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+	
+	<TabHost
+	    xmlns:android="http://schemas.android.com/apk/res/android" 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:id="@android:id/tabhost"
+	    >
+	    
+	    <RelativeLayout android:orientation="vertical"
+      		 android:layout_width="fill_parent"
+       		 android:layout_height="fill_parent">
+       		 <LinearLayout 
+       		     android:id="@+id/ll2"
+			     android:layout_width="80dp"
+			   	 android:layout_height="wrap_content"
+			   	 android:layout_centerHorizontal="true"
+			   	 android:orientation="vertical"
+       		     >
+	       		 <ImageView 
+			        android:id="@+id/shopLogo"
+			        android:layout_width="80dp"
+			   		android:layout_height="80dp"
+					android:src="@drawable/ic_launcher"
+					android:layout_marginTop="10dp"
+		        />
+	       		 <TextView 
+	       		    android:id="@+id/shopName"
+			        android:layout_width="wrap_content"
+			   		android:layout_height="wrap_content"
+			   		android:layout_marginTop="3dp"
+			   		android:layout_gravity="center_horizontal"
+			   		android:gravity="center_horizontal"
+			   		android:text="金凤呈祥"
+	       		     />
+       		 </LinearLayout>
+		    <TabWidget 
+		        
+		        android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@id/ll2"
+	            android:id="@android:id/tabs"
+		        ></TabWidget>
+		    <FrameLayout 
+		        android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:id="@android:id/tabcontent"
+	            android:layout_below="@android:id/tabs"
+		        ></FrameLayout>
+		    </RelativeLayout>
+	</TabHost>
