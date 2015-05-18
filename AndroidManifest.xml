@@ -27,6 +27,7 @@
 	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
 	<!--允许应用读取低级别的系统日志文件 -->
 	<uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
+	<uses-permission android:name="android.permission.CALL_PHONE"/>
     <application
         android:allowBackup="true"
         android:name="com.rbf.qxforshop.MyApplication"
@@ -60,6 +61,9 @@
         <activity android:name="com.rbf.qxforshop.activity.order.IncomeActivity" android:launchMode="singleTop" android:screenOrientation="portrait"></activity>
         <activity android:name="com.rbf.qxforshop.activity.MineGroupActivity" android:launchMode="singleTop" android:screenOrientation="portrait"></activity>
         <activity android:name="com.rbf.qxforshop.activity.MineActivity" android:launchMode="singleTop" android:screenOrientation="portrait"></activity>
+        <activity android:name="com.rbf.qxforshop.activity.AddGoodActivity" android:launchMode="singleTop" android:screenOrientation="portrait"></activity>
+        <activity android:name="com.rbf.qxforshop.activity.ModifySelledGoodActivity" android:launchMode="singleTop" android:screenOrientation="portrait"></activity>
+        <activity android:name="com.rbf.qxforshop.activity.ModifySellingGoodActivity" android:launchMode="singleTop" android:screenOrientation="portrait"></activity>
         <!-- 定位service -->
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
 </service>

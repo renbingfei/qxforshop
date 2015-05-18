@@ -37,12 +37,7 @@ public class RealMainActivity extends TabActivity implements OnTabChangeListener
 	private TabHost tabHost;
 	private int[] pressedDrawable = new int[]{R.drawable.three_big_type_shop_pressed,R.drawable.three_big_type_order_pressed,R.drawable.three_big_type_mine_pressed};
 	private int[] unpressedDrawable = new int[]{R.drawable.three_big_type_shop_unpressed,R.drawable.three_big_type_order_unpressed,R.drawable.three_big_type_mine_unpressed};
-	private static final int THUMB_SIZE = 150;
-	//部件
-	private ImageView share;
-	private ImageView add_goods;
-	//微信分享
-	private final String APP_ID = "wx50e7c1b62dd05c26";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -57,11 +52,11 @@ public class RealMainActivity extends TabActivity implements OnTabChangeListener
 	}
 
 	public void initWidget(){
-		share = (ImageView) findViewById(R.id.share);
-		add_goods = (ImageView) findViewById(R.id.add_goods);
-		//设置监听
-		share.setOnClickListener(this);
-		add_goods.setOnClickListener(this);
+//		share = (ImageView) findViewById(R.id.share);
+//		add_goods = (ImageView) findViewById(R.id.add_goods);
+//		//设置监听
+//		share.setOnClickListener(this);
+//		add_goods.setOnClickListener(this);
 	}
 	public void initSpec(){
 		
@@ -115,36 +110,7 @@ public class RealMainActivity extends TabActivity implements OnTabChangeListener
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		if(v == share){
-			//分享
-			final IWXAPI api = WXAPIFactory.createWXAPI(getApplicationContext(),APP_ID,true);  
-	        api.registerApp(APP_ID);  
-	     // 初始化一个WXTextObject对象  
-//            String text = "share our application";  
-//            WXTextObject textObj = new WXTextObject();  
-//            textObj.text = text;  
-//            
-//            WXMediaMessage msg = new WXMediaMessage(textObj);  
-//            msg.mediaObject = textObj;  
-//            msg.description = text;  
-	        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
-			WXImageObject imgObj = new WXImageObject(bmp);
-			
-			WXMediaMessage msg = new WXMediaMessage();
-			msg.mediaObject = imgObj;
-			msg.description="dkjfdkfdkjfk";
-			Bitmap thumbBmp = Bitmap.createScaledBitmap(bmp, THUMB_SIZE, THUMB_SIZE, true);
-			bmp.recycle();
-			msg.thumbData = Util.bmpToByteArray(thumbBmp, true);  // 设置缩略图  
-            SendMessageToWX.Req req = new SendMessageToWX.Req();  
-            req.transaction = String.valueOf(System.currentTimeMillis());  
-            req.message = msg;  
-            req.scene = SendMessageToWX.Req.WXSceneTimeline;
-            api.sendReq(req);  
-		}else if(v == add_goods){
-			//添加商品
-			
-		}
+		
 	}
 	
 //	@Override

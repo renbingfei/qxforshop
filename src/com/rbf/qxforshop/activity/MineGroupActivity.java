@@ -1,14 +1,18 @@
 package com.rbf.qxforshop.activity;
 
 import com.rbf.qxforshop.MyApplication;
+import com.rbf.qxforshop.R;
 import com.rbf.qxforshop.utils.Common;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 public class MineGroupActivity extends ActivityGroup{
 	/** 
@@ -16,7 +20,8 @@ public class MineGroupActivity extends ActivityGroup{
      */  
     public static ActivityGroup group;  
       
-    @Override  
+    @SuppressLint("NewApi")
+	@Override  
     protected void onCreate(Bundle savedInstanceState) {  
         // TODO Auto-generated method stub  
         super.onCreate(savedInstanceState);  

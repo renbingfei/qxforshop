@@ -3,8 +3,12 @@
     android:layout_width="fill_parent"
     android:background="@color/global_light_gray"
     android:layout_height="fill_parent" >
+    <include 
+       	android:id="@+id/include"
+       	layout="@layout/global_register_navigation"/>
 	<ImageView 
 	    android:id="@+id/ic_login"
+	    android:layout_below="@id/include"
 	    android:layout_width="wrap_content"
 	    android:layout_height="@dimen/global_textView_size"
 	    android:layout_centerHorizontal="true"
@@ -23,7 +27,7 @@
 	    android:layout_marginBottom="15dp"
 	    android:gravity="center"
 	    android:background="@color/white"
-	    android:hint="请输入手机号注册"
+	    android:hint="请输入手机号"
 	    />
     <TextView 
 	    android:id="@+id/nextStep"

@@ -2,8 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
+    <include 
+        android:id="@+id/include"
+        layout="@layout/global_mine_navigation"/>
+    
 	<ImageView 
 	    android:id="@+id/ic_login"
+	    android:layout_below="@id/include"
 	    android:layout_width="wrap_content"
 	    android:layout_height="@dimen/global_textView_size"
 	    android:layout_centerHorizontal="true"

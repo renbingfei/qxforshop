@@ -6,6 +6,8 @@ import java.util.LinkedList;
 
 import com.rbf.qxforshop.MyApplication;
 import com.rbf.qxforshop.R;
+import com.rbf.qxforshop.activity.ModifySelledGoodActivity;
+import com.rbf.qxforshop.activity.ModifySellingGoodActivity;
 import com.rbf.qxforshop.utils.GoodsData;
 import com.rbf.qxforshop.view.PullToRefreshBase.OnRefreshListener;
 import com.rbf.qxforshop.view.PullToRefreshListView;
@@ -16,14 +18,19 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
-public class SellingActivity extends Activity{
+public class SellingActivity extends Activity implements OnItemClickListener{
 	public static LinkedList<HashMap<String,Object>> mListItems;
 	private PullToRefreshListView mPullRefreshListView;
 	private ArrayAdapter<String> mAdapter;
@@ -51,6 +58,7 @@ public class SellingActivity extends Activity{
 		GoodsData.getSellingData();
 		pullAdapter = new SellingPullAdapter(mListItems, SellingActivity.this);
 		mListView.setAdapter(pullAdapter);
+		mListView.setOnItemClickListener(this);
 	}
 	
 	OnRefreshListener mOnrefreshListener = new OnRefreshListener() {
@@ -101,5 +109,16 @@ public class SellingActivity extends Activity{
 			}
 			
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		// TODO Auto-generated method stub
+		TextView goods_item_name = (TextView) view.findViewById(R.id.goods_item_name);
+		Intent intent = new Intent(SellingActivity.this, ModifySellingGoodActivity.class);
+		//传输相关商品id
+		
+		startActivity(intent);
 	}
 }

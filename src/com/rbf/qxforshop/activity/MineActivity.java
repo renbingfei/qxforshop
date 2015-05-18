@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +32,15 @@ public class MineActivity extends Activity implements OnClickListener{
 	private TextView forget_password_btn;//忘记密码
 	private boolean isFirstNo = false;
 	private boolean isFirstLogin = false;
+	private int loginCount = 0;
 	private ProgressDialog progressDialog;
+	
+	//登陆后
+	private ImageView ic_login;//头像
+	private TextView login_account_text; //账号
+	private ImageView call; //拨打客服
+	private ImageView userProtocol; //用户协议
+	private ImageView changePhoto; //更改头像
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -66,7 +76,21 @@ public class MineActivity extends Activity implements OnClickListener{
 	//第二个view
 	public void setContentView2(){
 		setContentView(contentView2);
-		
+		if(loginCount == 0){
+			init2();
+		}
+	}
+	
+	public void init2(){
+		ic_login = (ImageView)findViewById(R.id.ic_login);
+		login_account_text = (TextView)findViewById(R.id.login_account_text);
+		call = (ImageView)findViewById(R.id.call);
+		userProtocol = (ImageView)findViewById(R.id.userProtocol);
+		changePhoto = (ImageView)findViewById(R.id.changePhoto);
+		//初始化
+		call.setOnClickListener(this);
+		userProtocol.setOnClickListener(this);
+		changePhoto.setOnClickListener(this);
 	}
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -125,6 +149,30 @@ public class MineActivity extends Activity implements OnClickListener{
             View view = w.getDecorView();  
             //把View添加大ActivityGroup中  
             MineGroupActivity.group.setContentView(view); 
+		}else if( v== call){
+			//拨打客服电话
+			new AlertDialog.Builder(MineGroupActivity.group)
+							.setTitle("客服")
+							.setIcon(R.drawable.ic_prompt)
+							.setMessage("拨打客服电话，完成注册")
+							.setPositiveButton("拨打", new DialogInterface.OnClickListener() {
+								
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									// TODO Auto-generated method stub
+									Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10086"));
+									startActivity(intent);
+								}
+							})
+							.setNegativeButton("取消", null)
+							.show();
+							
+		}else if(v == userProtocol){
+			//用户协议
+			
+		}else if(v == changePhoto){
+			//更换图片
+			
 		}
 	}
 }

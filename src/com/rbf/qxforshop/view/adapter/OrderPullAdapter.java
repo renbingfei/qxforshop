@@ -40,7 +40,7 @@ public class OrderPullAdapter extends BaseAdapter {
 		return position;
 	}
 	private static class ViewHolder {
-		TextView imageView;        //数据显示区域
+		//TextView imageView;        //数据显示区域
 		TextView tvName;
 		TextView tvOriginPrice;
 		TextView tvQxPrice;
@@ -56,7 +56,7 @@ public class OrderPullAdapter extends BaseAdapter {
 		if (convertView == null) {
 			holder = new ViewHolder();
 			convertView = mInflater.inflate(R.layout.order_listitem, null);
-			holder.imageView = (TextView) convertView.findViewById(R.id.goods_item_imageview);
+			//holder.imageView = (TextView) convertView.findViewById(R.id.goods_item_imageview);
 			holder.tvName = (TextView) convertView.findViewById(R.id.goods_item_name);
 			holder.tvOriginPrice = (TextView) convertView.findViewById(R.id.goods_item_origin_price);
 			holder.tvQxPrice = (TextView) convertView.findViewById(R.id.goods_item_qx_price);
@@ -73,7 +73,7 @@ public class OrderPullAdapter extends BaseAdapter {
 			
 			final HashMap<String, Object> map = datalist.get(position);
 			
-			holder.imageView.setText(map.get("image").toString());
+			//holder.imageView.setText(map.get("image").toString());
 			holder.tvName.setText(map.get("name").toString());
 			holder.tvOriginPrice.setText(map.get("origin_price").toString());
 			holder.tvQxPrice.setText(" "+map.get("qx_price").toString()+" ");

@@ -1,9 +1,16 @@
 package com.rbf.qxforshop.utils;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.widget.Toast;
 
@@ -17,6 +24,7 @@ import net.tsz.afinal.FinalBitmap;
 import net.tsz.afinal.FinalHttp;
 
 public class Common {
+	public static String JSESSIONID = "";
 	public static boolean loginOrfindPassword = false;
 	public static boolean isLogin = false;  //是否登录
 	public static LocationClient locationClient = null;  //百度定位
@@ -41,6 +49,51 @@ public class Common {
 	public static void unregisterLocation(){
 		locationClient.unRegisterLocationListener( myListener );    //注册监听函数
 	}
+	//获取文件名
+	public static String getFileName() {
+		// TODO Auto-generated method stub
+		Date t=new Date();
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+		
+		String FileName=format.format(t);
+		System.out.println(FileName);
+		return FileName;
+	}
 	
-	
+	/**
+     * 递归删除文件和文件夹
+     * @param file    要删除的根目录
+     */
+    public static void RecursionDeleteFile(File file){
+        if(file.isFile()){
+            file.delete();
+            return;
+        }
+        if(file.isDirectory()){
+            File[] childFile = file.listFiles();
+            if(childFile == null || childFile.length == 0){
+                file.delete();
+                return;
+            }
+            for(File f : childFile){
+                RecursionDeleteFile(f);
+            }
+            file.delete();
+        }
+    }
+    
+    public static void setSessionId(){
+    	DefaultHttpClient client = (DefaultHttpClient) Common.fhttp.getHttpClient();
+    	List<Cookie> list = client.getCookieStore().getCookies();
+    	if(list.isEmpty()){
+    		
+    	}else{
+    		for(Cookie cookie:list){
+    			JSESSIONID = cookie.getValue();
+    		}
+    	}
+    	
+    	Common.fhttp.addHeader("Cookie", "JSESSIONID="+JSESSIONID);
+    }
 }

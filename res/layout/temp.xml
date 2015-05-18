@@ -1,12 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="测试使用"
-        ></TextView>
-        
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+    <!-- 登录后的界面  头部显示图像  和  用户手机号 -->
+    <RelativeLayout 
+        android:id="@+id/myLoginLayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="130dp"
+	    android:background="@drawable/my_login_background"
+        >
+		<ImageView 
+		    android:id="@+id/ic_login"
+		    android:layout_width="wrap_content"
+		    android:layout_height="@dimen/global_textView_size"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginTop="20dp"
+		    android:layout_marginBottom="5dp"
+		    android:src="@drawable/ic_login"
+		    />    
+		<TextView 
+		    android:id="@+id/login_account_text"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_below="@id/ic_login"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginBottom="5dp"
+		    android:textColor="@color/black"
+		    android:text="18610095845"
+		    />
+	</RelativeLayout>
+	
+	</LinearLayout>
+	</ScrollView>
 
-</LinearLayout>
+</RelativeLayout>

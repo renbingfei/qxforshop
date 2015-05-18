@@ -11,9 +11,8 @@
 	    <RelativeLayout android:orientation="vertical"
       		 android:layout_width="fill_parent"
        		 android:layout_height="fill_parent">
-       		 <include 
-       		     android:id="@+id/include"
-       		     layout="@layout/global_navigation"/>
+
+
 		    <TabWidget 
 		        android:layout_width="fill_parent"
 	            android:layout_height="wrap_content"
@@ -21,8 +20,7 @@
 	            android:background="@color/global_light_gray"
 	            android:id="@android:id/tabs"
 		        ></TabWidget>
-		    <FrameLayout 
-		        android:layout_below="@id/include"
+		   <FrameLayout 
 		        android:layout_width="fill_parent"
 	            android:layout_height="fill_parent"
 	            android:id="@android:id/tabcontent"

@@ -10,8 +10,11 @@ import net.tsz.afinal.http.AjaxParams;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -57,6 +60,10 @@ public class RegisterActivity extends Activity implements OnClickListener {
 	private Long millisInFuture;                //计时器总时长
 	private Long countDownInterval;             //计时器间隔时间
 	private Handler handler = new MyHandler();
+	private ImageView back1;
+	private ImageView call1;
+	private ImageView back2;
+	private ImageView call2;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +78,14 @@ public class RegisterActivity extends Activity implements OnClickListener {
 	
 	private void setContentView1(){
 		setContentView(contentView1);
+		if(back1==null){
+			back1 = (ImageView) findViewById(R.id.back);
+			back1.setOnClickListener(this);
+		}
+		if(call1==null){
+			call1 = (ImageView) findViewById(R.id.call);
+			call1.setOnClickListener(this);
+		}
 	}
 	private void setContentView2(){
 		setContentView(contentView2);
@@ -84,6 +99,14 @@ public class RegisterActivity extends Activity implements OnClickListener {
 			//注册监听器
 			get_identify_code.setOnClickListener(this);
 			finish_and_login.setOnClickListener(this);
+		}
+		if(back2==null){
+			back2 = (ImageView) findViewById(R.id.back);
+			back2.setOnClickListener(this);
+		}
+		if(call2==null){
+			call2 = (ImageView) findViewById(R.id.call);
+			call2.setOnClickListener(this);
 		}
 		isNextView = true;
 		changeViewCount++;
@@ -142,6 +165,38 @@ public class RegisterActivity extends Activity implements OnClickListener {
 			}else{
 					//找回密码
 			}
+		}else if(v == back2){
+			setContentView(contentView1);
+			isNextView = false;
+			changeViewCount++;
+		}else if(v == back1){
+			Intent intent = new Intent();
+			intent.setClass(RegisterActivity.this, MineActivity.class);
+			
+			//把一个Activity转换成一个View  
+            Window w = MineGroupActivity.group.getLocalActivityManager()  
+                    .startActivity("MineActivity",intent);  
+            View view = w.getDecorView();  
+            //把View添加大ActivityGroup中  
+            MineGroupActivity.group.setContentView(view); 
+		}else if(v == call1 || v == call2){
+			//拨打客服电话
+			new AlertDialog.Builder(MineGroupActivity.group)
+							.setTitle("客服")
+							.setIcon(R.drawable.ic_prompt)
+							.setMessage("拨打客服电话，完成注册")
+							.setPositiveButton("拨打", new DialogInterface.OnClickListener() {
+								
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									// TODO Auto-generated method stub
+									Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10086"));
+									startActivity(intent);
+								}
+							})
+							.setNegativeButton("取消", null)
+							.show();
+							
 		}
 	}
 	//返回键

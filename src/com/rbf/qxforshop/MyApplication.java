@@ -43,8 +43,8 @@ public class MyApplication extends Application{
       		Common.fb.configBitmapLoadThreadSize(4);
       		Common.fb.configDiskCachePath(this.getBaseContext().getFilesDir().toString());//设置缓存目录；   
       		Common.fb.configDiskCacheSize(1024 * 1024 * 10);//设置缓存大小 
-      		Common.fb.configLoadingImage(R.drawable.ic_prompt);
-      		Common.fb.configLoadfailImage(R.drawable.ic_prompt);
+      		Common.fb.configLoadingImage(R.drawable.ic_load_fail);
+      		Common.fb.configLoadfailImage(R.drawable.ic_load_fail);
       		
       		Common.fhttp = new FinalHttp();
       		Common.fhttp.configTimeout(1000);//超时时间  测试使用,实际使用时需要调高

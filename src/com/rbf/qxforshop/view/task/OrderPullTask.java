@@ -56,7 +56,7 @@ public class OrderPullTask extends AsyncTask<Void, Void, String>{
 			HashMap<String, Object > map;
 			for(int i=0;i<4;i++){
 				map = new HashMap<String, Object>();
-				map.put("image", i+1);
+				//map.put("image", i+1);
 				map.put("name", "红富士苹果");
 				map.put("goodId", "goodId: "+i);
 				map.put("origin_price", "销售数量 "+3+" 斤");
@@ -72,7 +72,7 @@ public class OrderPullTask extends AsyncTask<Void, Void, String>{
 			HashMap<String, Object > map;
 			for(int i=0;i<4;i++){
 				map = new HashMap<String, Object>();
-				map.put("image", i+1);
+				//map.put("image", i+1);
 				map.put("name", "红富士苹果");
 				map.put("goodId", "goodId: "+i);
 				map.put("origin_price", "销售数量 "+3+" 斤");
